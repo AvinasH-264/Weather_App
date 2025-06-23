@@ -10,12 +10,12 @@ console.log(weather_type_img);
 search_btn.addEventListener("click" , function(e) {
     e.preventDefault();
     const name = input_field.value;
-    // console.log(name);
     getData(name);
 })
 
 async function getData(name) {
-    let URL = `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=b250a5a570bcb629df01d0612c90f776&units=metric`
+    const API_KEY = 'b250a5a570bcb629df01d0612c90f776'
+    let URL = `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid={API_KEY}&units=metric`
 
     let response = await fetch(URL);
     let data = await response.json();
