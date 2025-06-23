@@ -20,13 +20,14 @@ async function getData(name) {
     let response = await fetch(URL);
     let data = await response.json();
     if(data.cod == 404) {
-        console.log("you got ig");
         document.querySelector(".weather").style.display = 'none';
         document.querySelector('.error').style.display = 'block';
     }
 
     else {
         document.querySelector(".weather").style.display = 'flex';
+        document.querySelector(".error").style.display = 'none';
+
         change_img(data);
         change_values(data);
     }
